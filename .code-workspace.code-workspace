@@ -1,0 +1,17 @@
+{
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "./terraform"
+        },
+        {
+            "path": "./executor"
+        },
+        {
+            "path": "./dbt"
+        },
+    ],
+    "settings": {}
+}
