@@ -1,4 +1,4 @@
-resource "google_cloud_run_v2_job" "mailchimp_ingestion" {
+resource "google_cloud_run_v2_job" "ingestion_mailchimp" {
   depends_on = [
     google_bigquery_dataset.landing__mailchimp,
     google_service_account.welcome_packet_3,
@@ -8,7 +8,7 @@ resource "google_cloud_run_v2_job" "mailchimp_ingestion" {
   ]
   deletion_protection = false
 
-  name     = "mailchimp--ingestion"
+  name     = "ingestion--mailchimp"
   location = "us-central1"
   template {
     template {
@@ -17,7 +17,7 @@ resource "google_cloud_run_v2_job" "mailchimp_ingestion" {
       max_retries           = 0
       service_account       = google_service_account.welcome_packet_3.email
       containers {
-        image = "${google_artifact_registry_repository.docker_1.location}-docker.pkg.dev/${data.google_project.project.project_id}/${google_artifact_registry_repository.docker_1.name}/mailchimp--ingestion:latest"
+        image = "${google_artifact_registry_repository.docker_1.location}-docker.pkg.dev/${data.google_project.project.project_id}/${google_artifact_registry_repository.docker_1.name}/ingestion--mailchimp:latest"
         resources {
           limits = {
             "cpu"    = "1"
