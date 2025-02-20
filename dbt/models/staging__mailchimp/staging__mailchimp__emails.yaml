@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: staging__mailchimp__emails
+    config:
+      alias: emails
+      partition_by:
+        field: _sys_created_date
+        data_type: date
+        granularity: day
