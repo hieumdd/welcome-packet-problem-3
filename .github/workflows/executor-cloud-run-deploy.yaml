@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - executor
     paths:
       - .github/workflows/executor-cloud-run-deploy.yaml
       - executor/**
