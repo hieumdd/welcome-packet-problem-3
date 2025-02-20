@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: landing__mailchimp
+    schema: landing__mailchimp
+    tables:
+      - name: emails

@@ -66,7 +66,7 @@ jobs:
             MAILCHIMP_API_KEY=MAILCHIMP_API_KEY:latest
           flags: |
             --service-account ${{ env.GCP_SA }}
-            --args server
+            --args server.py
             --cpu 1
             --memory 512Mi
 

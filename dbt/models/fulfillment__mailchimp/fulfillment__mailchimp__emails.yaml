@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: fulfillment__mailchimp__emails
+    config:
+      alias: emails
+      partition_by:
+        field: date
+        data_type: date
+        granularity: day
