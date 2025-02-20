@@ -16,3 +16,22 @@ resource "google_cloud_scheduler_job" "ingestion_mailchimp" {
     }
   }
 }
+
+resource "google_cloud_scheduler_job" "dbt" {
+  depends_on = [
+    google_cloud_run_v2_job.dbt,
+  ]
+
+  name             = "dbt"
+  paused           = false
+  schedule         = "15 */4 * * *"
+  attempt_deadline = "15s"
+  region           = "us-central1"
+  http_target {
+    http_method = "POST"
+    uri         = "https://${google_cloud_run_v2_job.dbt.location}-run.googleapis.com/apis/run.googleapis.com/v1/namespaces/${data.google_project.project.number}/jobs/${google_cloud_run_v2_job.dbt.name}:run"
+    oauth_token {
+      service_account_email = google_service_account.welcome_packet_3.email
+    }
+  }
+}
