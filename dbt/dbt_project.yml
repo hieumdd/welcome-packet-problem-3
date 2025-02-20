@@ -9,6 +9,8 @@ models:
     +materialized: table
     staging__mailchimp:
       +schema: staging__mailchimp
+    fulfillment__mailchimp:
+      +schema: fulfillment__mailchimp
 
 analysis-paths:
   - analyses
