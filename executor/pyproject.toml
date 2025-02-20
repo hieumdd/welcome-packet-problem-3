@@ -1,0 +1,19 @@
+[project]
+name = "welcome-packet-problem-3"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.115.8",
+    "google-cloud-bigquery>=3.29.0",
+    "httpx>=0.28.1",
+    "pendulum>=3.0.0",
+    "pydantic>=2.10.6",
+    "python-multipart>=0.0.20",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.3.4", "ruff>=0.9.6"]
+
+[tool.pytest.ini_options]
+addopts = "-s --durations=0"
+python_files = ["*_test.py"]
