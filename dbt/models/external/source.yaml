@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: external__mailchimp
+    schema: mailchimp_data_amc
+    tables:
+      - name: automations
