@@ -1,0 +1,35 @@
+name: welcome_packet_problem_3
+version: 1.0.0
+config-version: 2
+
+profile: welcome_packet_problem_3
+
+models:
+  welcome_packet_problem_3:
+    +materialized: table
+    staging__mailchimp:
+      +schema: staging__mailchimp
+    fulfillment__mailchimp:
+      +schema: fulfillment__mailchimp
+
+analysis-paths:
+  - analyses
+
+macro-paths:
+  - macros
+
+model-paths:
+  - models
+
+seed-paths:
+  - seeds
+
+snapshot-paths:
+  - snapshots
+
+test-paths:
+  - tests
+
+clean-targets:
+  - target
+  - dbt_packages

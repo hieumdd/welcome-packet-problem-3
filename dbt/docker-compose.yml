@@ -1,0 +1,11 @@
+services:
+    dbt:
+        image: us-central1-docker.pkg.dev/satori-test-10-451404/docker-1/dbt
+        build: .
+        container_name: welcome-packet-problem-3-dbt
+        volumes:
+            - ${GOOGLE_APPLICATION_CREDENTIALS}:/tmp/key.json:ro
+        environment:
+            GOOGLE_APPLICATION_CREDENTIALS: /tmp/key.json
+        env_file:
+            - .env

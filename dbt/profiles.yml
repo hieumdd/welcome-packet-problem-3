@@ -1,0 +1,20 @@
+welcome_packet_problem_3:
+  target: development
+  outputs:
+    development:
+      type: bigquery
+      method: service-account
+      keyfile: ./service-account.json
+      project: satori-test-10-451404
+      schema: CUSTOM_SCHEMA_USED
+      threads: 8
+      location: us
+      priority: interactive
+    production:
+      type: bigquery
+      method: oauth
+      project: satori-test-10-451404
+      schema: CUSTOM_SCHEMA_USED
+      threads: 8
+      location: us
+      priority: interactive
