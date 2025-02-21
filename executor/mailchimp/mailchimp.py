@@ -33,13 +33,13 @@ class BatchOperation(TypedDict):
 def build_list_automated_emails_operation(workflow_id: str) -> Operation:
     return Operation(
         method="GET",
-        path=f"/automations/${workflow_id}/emails",
+        path=f"/automations/{workflow_id}/emails",
         operation_id=workflow_id,
     )
 
 
 def start_batch_operation(operations: list[Operation]):
-    logger.debug(f"Creating ${len(operations)}")
+    logger.debug(f"Creating {len(operations)}")
     response = client.request(
         method="POST",
         url="/batches",
@@ -47,7 +47,7 @@ def start_batch_operation(operations: list[Operation]):
     )
     response_data: BatchOperation = response.json()
     total_operations = response_data["total_operations"]
-    logger.debug(f"Created {total_operations} / ${len(operations)} Operations")
+    logger.debug(f"Created {total_operations} / {len(operations)} Operations")
     return response_data
 
 

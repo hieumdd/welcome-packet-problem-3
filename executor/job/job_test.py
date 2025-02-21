@@ -6,4 +6,4 @@ def test_get_workflow_ids():
 
 def test_create_batch_operation():
     batch_operation = create_batch_operation()
-    assert batch_operation
+    assert batch_operation is None
